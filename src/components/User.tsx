@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../store/store'; // Adjust path
-import { fetchUsers } from '../slice/userSlice'; // Adjust path
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../store/store"; // Adjust path
+import { fetchUsers } from "../slice/userSlice"; // Adjust path
 
 const User: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { data: users, loading, error } = useSelector((state: RootState) => state.users);
+  const {
+    data: users,
+    loading,
+    error,
+  } = useSelector((state: RootState) => state.users);
 
   // Fetch users when the component mounts
   useEffect(() => {
@@ -15,7 +19,7 @@ const User: React.FC = () => {
 
   return (
     <div className="p-4 mt-[25px]">
-      <h2 className="text-xl font-bold mb-4">Costumer List</h2>
+      <h2 className="text-xl font-bold mb-4 text-blue-500">Costumer List</h2>
 
       {/* Loading state */}
       {loading && <p>Loading...</p>}

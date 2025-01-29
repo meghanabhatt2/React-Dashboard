@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Bell, ChevronDown, User,Calendar } from 'lucide-react';
-import CustomModal from './CustomModal'; // Import the Modal component
-import DateRangeSelector from './DateRange'; // Import the DateRangeSelector component
+import React, { useState } from "react";
+import { Bell, ChevronDown, User, Calendar } from "lucide-react";
+import ThemeToggle from "../components/ToggleTheme"; // Your toggle button
+import CustomModal from "./CustomModal"; // Import the Modal component
+import DateRangeSelector from "./DateRange"; // Import the DateRangeSelector component
 const Header: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [modalOpen, setModalOpen] = useState<boolean>(false); // Modal state
-
 
   const toggleDropdown = (): void => {
     setDropdownOpen(!dropdownOpen);
@@ -22,16 +22,19 @@ const Header: React.FC = () => {
   return (
     <header className="flex justify-between items-center bg-gray-800 p-4 text-white">
       {/* Left Side: Dashboard Text */}
-      <h1 className="text-2xl font-bold">Dashboard</h1>
+      <h1 className="text-2xl font-bold ">Dashboard</h1>
 
       {/* Right Side: Notifications and Profile */}
       <div className="flex items-center space-x-4">
         {/* Notification Bell */}
-        <button className="relative hover:text-gray-400" aria-label="Notifications cursor-pointer">
+        <button
+          className="relative hover:text-gray-400"
+          aria-label="Notifications cursor-pointer"
+        >
           <Bell className="w-6 h-6 cursor-pointer" />
           <span className="absolute top-0 right-0 inline-block w-2 h-2 bg-red-500 rounded-full"></span>
         </button>
-
+        <ThemeToggle />
         {/* Calendar Icon for Date Range Selector */}
         <button
           onClick={openModal}
@@ -48,7 +51,6 @@ const Header: React.FC = () => {
             className="flex items-center space-x-2 hover:text-gray-400 cursor-pointer"
             aria-label="User Profile"
           >
-          
             <User className="w-6 h-6 cursor-pointer" />
             <ChevronDown className="w-5 h-5 cursor-pointer" />
           </button>

@@ -1,9 +1,9 @@
-import React from 'react';
-import Modal from 'react-modal';
-import { X } from 'lucide-react'; // Assuming you're using lucide-react for the cross icon
+import React from "react";
+import Modal from "react-modal";
+import { X } from "lucide-react"; // Assuming you're using lucide-react for the cross icon
 
 // Modal accessibility setting
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 interface ModalProps {
   isOpen: boolean;
@@ -11,7 +11,11 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-const CustomModal: React.FC<ModalProps> = ({ isOpen, onRequestClose, children }) => {
+const CustomModal: React.FC<ModalProps> = ({
+  isOpen,
+  onRequestClose,
+  children,
+}) => {
   return (
     <Modal
       isOpen={isOpen}
